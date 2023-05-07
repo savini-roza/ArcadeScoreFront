@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div *ngIf="!jogadorSelecionado" class="text-center">
+        <table>
+          <thead>
+            <p>Ranking - Maiores Pontuações</p>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pontuacao of pontuacoes; let i = index">
+              <td colspan="2">{{i+1}} <span (click)="selecionarJogador(pontuacao.nomeJogador)">{{pontuacao.nomeJogador}}</span></td>
+              <td colspan="2">{{pontuacao.pontuacaoTotal}} pontos</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="jogadorSelecionado">
+        <table>
+          <thead>Estatísticas Jogador - {{jogador.nomeJogador}}</thead>
+          <tbody>
+            <tr>
+              <td>Partidas Jogadas</td>
+              <td>{{jogador.partidasJogadas}}</td>
+            </tr>
+            <tr>
+              <td>Média de Pontuação</td>
+              <td>{{jogador.mediaPontuacao}}</td>
+            </tr>
+            <tr>
+              <td>Maior Pontuação</td>
+              <td>{{jogador.maiorPontuacao}}</td>
+            </tr>
+            <tr>
+              <td>Menor Pontuacao</td>
+              <td>{{jogador.menorPontuacao}}</td>
+              <tr>
+                <td>Vezes em que bateu o próprio recorde</td>
+                <td>{{jogador.qtdRecordeBatido}}</td>
+              </tr>
+              <tr>
+                <td>Tempo Jogado</td>
+                <td>{{jogador.tempoJogado}}</td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
